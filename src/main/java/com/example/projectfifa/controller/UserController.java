@@ -3,7 +3,6 @@ package com.example.projectfifa.controller;
 import com.example.projectfifa.dto.request.UserAuthorizationDtoRequest;
 import com.example.projectfifa.dto.request.UserRegistrationDtoRequest;
 import com.example.projectfifa.dto.response.UserDtoResponse;
-import com.example.projectfifa.exception.ExceptionHandling;
 import com.example.projectfifa.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -35,8 +34,9 @@ public class UserController {  // extends is for Show message of exception to cl
     @PostMapping("/authorization")
     public ResponseEntity<UserDtoResponse> authorization (@Valid @RequestBody UserAuthorizationDtoRequest dtoRequest,
                                                             HttpServletRequest request) {
-        return userService.authorization(dtoRequest, request);
-    }
+        userService.authorization(dtoRequest, request);
 
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }

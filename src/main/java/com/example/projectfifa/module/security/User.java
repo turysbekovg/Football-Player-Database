@@ -37,8 +37,8 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>(); // set because user has unique roles
 
-    @Column(name = "is_active", nullable = false, columnDefinition = "boolean default false")
-    private Boolean isActive; // if the account is active, by default it is false.
+    @Column(name = "is_active", nullable = false, columnDefinition = "boolean default true")
+    private Boolean isActive; // if the account is active, by default it is true.
 
     @Column(name = "is_non_locked", nullable = false, columnDefinition = "boolean default true")
     private Boolean isNonLocked; // if false -> user is not locked
