@@ -87,6 +87,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {  // im
             createdUser.setUsername(username);
             createdUser.setPassword(encoder.encode(password)); // built-in function that encodes the password
             createdUser.setName(dtoRequest.getName());
+            createdUser.setIsActive(false);
+            createdUser.setIsNonLocked(true);
 
             this.save(createdUser); // saving created user
 
